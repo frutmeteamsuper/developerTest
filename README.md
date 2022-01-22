@@ -1,4 +1,4 @@
 # developerTest+		
 PWA CRUD . 
 
-By `JuniorM` [www.Buckapi.com](https://wwww.buckapi.com/juniorMarquez).
+By `JuniorM` [www.Buckapi.com](https://www.buckapi.com/juniorMarquez).
