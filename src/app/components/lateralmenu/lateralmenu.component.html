@@ -1,0 +1,87 @@
+		<div *ngIf="userActive!==undefined">
+			<div class="profile-sidebar" *ngIf=" _uw.usertype=='dentist'">
+				<div class="profile-sidebar">
+					<div class="widget-profile pro-widget-content">
+						<div class="profile-info-widget" >
+							<a class="booking-doc-img" *ngIf="userActive!==undefined">
+								<img src="{{userActive.images[0]}}" alt="User Image">
+							</a>
+							<div class="profile-det-info">
+						      Bienvenido<br> 
+							
+								<h3 >{{userActive.username}} </h3>
+
+								<div class="patient-details">
+							
+								</div>
+							</div>
+						</div>
+					</div>
+	
+				</div>
+				<div class="dashboard-widget">
+					<nav class="dashboard-menu">
+						<ul>
+						
+				
+					
+						<li>
+								<a routerLink="../account">
+									<i class="fas fa-user-cog"></i>
+									<span>Mi cuenta</span>
+								</a>
+							</li>
+						
+							<li href="javascript:void(0)" data-toggle="modal" data-target="#voice_call"   style="cursor: pointer;">								<a >
+									<i class="fas fa-sign-out-alt"></i>
+									<span>Cerrar Sesión</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+
+			</div>
+			<div class="profile-sidebar" *ngIf=" _uw.usertype=='developertest'">
+				<div class="widget-profile pro-widget-content">
+					<div class="profile-info-widget">
+						<a class="booking-doc-img" *ngIf="userActive!==undefined">
+								<img src="{{userActive.images[0]}}" alt="User Image">
+							</a>
+						<div class="profile-det-info">
+							<h3>{{userActive.username}}</h3>
+							<div class="patient-details">
+				
+							</div>
+						</div>
+					</div>
+				</div>
+
+		
+
+
+				<div class="dashboard-widget">
+					<nav class="dashboard-menu">
+						<ul>
+							
+						
+						
+							<li>
+								<a routerLink="../account">
+									<i class="fas fa-user-cog"></i>
+									<span>Mi cuenta</span>
+								</a>
+							</li>
+						
+							<li  href="javascript:void(0)" data-toggle="modal" data-target="#voice_call"   style="cursor: pointer;" >
+								<a  >
+									<i class="fas fa-sign-out-alt"></i>
+									<span>Cerrar Sesión</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+
+			</div>
+		</div>

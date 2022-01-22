@@ -1,0 +1,199 @@
+<div class="content">
+	<div class="container-fluid">
+		<div class="row">
+
+			<!-- Profile Sidebar -->
+			<div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
+				<app-lateralmenu ></app-lateralmenu>
+			</div>
+			<!-- /Profile Sidebar -->
+
+			<div class="col-md-7 col-lg-8 col-xl-9" *ngIf="_uw.usertype=='developertest'">
+				<form  [formGroup]="ngFormUpdateUsercardData" >		
+					<div class="card">
+						<div class="card-body">							
+							<div class="row form-row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<div class="change-avatar">
+											<div class="profile-img" [hidden]="uploading" *ngIf="usercardSubmit.images[0]!==undefined">
+												<img src="{{usercardSubmit.images[0]}}" alt="User Image">
+											</div>
+												<div class="upload-img" [hidden]="uploading">
+													<div class="change-photo-btn">
+														<span><i class="fa fa-edit"></i> </span>
+														<input  class="upload"(click)="upload()">
+													</div>
+										
+												</div>
+											 <ngx-file-picker [hidden]="!uploading"
+								                [uploadType]="'multi'"
+								                (validationError)= "onValidationError($event)"
+								                [adapter]="adapter"
+								                [fileExtensions]="['pdf', 'jpeg','jpg', 'png', 'PNG', 'mp4', 'css', 'docx', 'txt']"
+								                (uploadSuccess)="onUploadSuccess($event)"
+								                (removeSuccess)="onRemoveSuccess($event)"
+								                [showeDragDropZone]="true"
+								                [showPreviewContainer]="true"
+								                [accept]="'image/*'"
+								                (fileAdded)="onFileAdded($event)">
+								            </ngx-file-picker> 
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="form-group ">
+									<!-- 	<input type="text" class="form-control floating"> -->
+									<label>Nombre de usuario</label>
+										<input type="text" class="form-control floating" id="username" formControlName="username" placeholder="Nombre de usuario" [(ngModel)]="usercardSubmit.username" [ngClass]="{'is-invalid': usercardSubmitted && fval2.username.errors }"required disabled="disabled">
+
+										<div *ngIf="usercardSubmitted && fval2.username.errors" class="invalid-feedback">
+											<div *ngIf="fval2.username.errors.required">
+											Por favor proporcione un nombre de usuario valido
+											</div>
+										 
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+										<div class="form-group ">
+										<!-- 	<input type="text" class="form-control floating"> -->
+										<label>Nombre </label>
+											<input type="text" class="form-control floating" id="name" formControlName="name" placeholder="Nombre" [(ngModel)]="usercardSubmit.name" [ngClass]="{'is-invalid': usercardSubmitted && fval2.name.errors }"required disabled="disabled">
+
+											<div *ngIf="usercardSubmitted && fval2.name.errors" class="invalid-feedback">
+												<div *ngIf="fval2.name.errors.required">
+												El nombre es requerido
+												</div>
+											 
+											</div>
+										</div>
+								</div>
+								<div class="col-12 col-md-6">
+										<div class="form-group ">
+										<!-- 	<input type="text" class="form-control floating"> -->
+										<label>Apellidos</label>
+											<input type="text" class="form-control floating" id="surname" formControlName="surname" placeholder="Apellidos" [(ngModel)]="usercardSubmit.surname" [ngClass]="{'is-invalid': usercardSubmitted && fval2.surname.errors }"required >
+
+											<div *ngIf="usercardSubmitted && fval2.surname.errors" class="invalid-feedback">
+												<div *ngIf="fval2.surname.errors.required">
+												El apellido es requerido
+												</div>
+											 
+											</div>
+										</div>
+								</div>
+								<div class="col-12 col-md-6">
+										<div class="form-group ">
+										
+										<label>Telefono</label>
+											<input type="text" class="form-control floating" id="phone" formControlName="phone" placeholder="Telefono" [(ngModel)]="usercardSubmit.phone" [ngClass]="{'is-invalid': usercardSubmitted && fval2.phone.errors }"required >
+
+											<div *ngIf="usercardSubmitted && fval2.phone.errors" class="invalid-feedback">
+												<div *ngIf="fval2.phone.errors.required">
+												Indique por favor un numero de telefono valido
+												</div>
+											 
+											</div>
+										</div>
+								</div>
+								<div class="col-12">
+										<label>Tipo de sangre</label>
+									<div class="form-group ">
+										<select    id="bloodType" formControlName="bloodType" [(ngModel)]="usercardSubmit.bloodType"
+										[ngClass]="{ 'is-invalid': usercardSubmitted && fval2.bloodType.errors }"
+										required  class="form-control select" >
+											<option>A-</option>
+											<option>A+</option>
+											<option>B-</option>
+											<option>B+</option>
+											<option>AB-</option>
+											<option>AB+</option>
+											<option>O-</option>
+											<option>O+<option>
+										</select>
+									</div>
+								</div>
+								<div class="col-12">
+										<div class="form-group ">
+										
+										<label>Direccion de domicilio</label>
+											<input type="text" class="form-control floating" id="address" formControlName="address" placeholder="Domicilio" [(ngModel)]="usercardSubmit.address" [ngClass]="{'is-invalid': usercardSubmitted && fval2.address.errors }"required >
+
+											<div *ngIf="usercardSubmitted && fval2.address.errors" class="invalid-feedback">
+												<div *ngIf="fval2.address.errors.required">
+												La direccion es requerida
+												</div>
+											 
+											</div>
+										</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="form-group ">
+									
+									<label>Ciudad</label>
+										<input type="text" class="form-control floating" id="city" formControlName="city" placeholder="Ciudad" [(ngModel)]="usercardSubmit.city" [ngClass]="{'is-invalid': usercardSubmitted && fval2.city.errors }"required >
+
+										<div *ngIf="usercardSubmitted && fval2.city.errors" class="invalid-feedback">
+											<div *ngIf="fval2.city.errors.required">
+											La ciudad es requerida
+											</div>
+										 
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="form-group ">
+									
+									<label>Provincia</label>
+										<input type="text" class="form-control floating" id="province" formControlName="province" placeholder="Provincia" [(ngModel)]="usercardSubmit.province" [ngClass]="{'is-invalid': usercardSubmitted && fval2.province.errors }"required >
+
+										<div *ngIf="usercardSubmitted && fval2.province.errors" class="invalid-feedback">
+											<div *ngIf="fval2.province.errors.required">
+											La provincia es requerida
+											</div>
+										 
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="form-group ">
+									<label>Pais</label>
+										<input type="text" class="form-control floating" id="country" formControlName="country" placeholder="Provincia" [(ngModel)]="usercardSubmit.country" [ngClass]="{'is-invalid': usercardSubmitted && fval2.country.errors }"required >
+										<div *ngIf="usercardSubmitted && fval2.country.errors" class="invalid-feedback">
+											<div *ngIf="fval2.country.errors.required">
+											El pais es requerido
+											</div>
+										 
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="form-group ">
+									<label>Código Postal</label>
+										<input type="text" class="form-control floating" id="postalCode" formControlName="postalCode" placeholder="Provincia" [(ngModel)]="usercardSubmit.postalCode" [ngClass]="{'is-invalid': usercardSubmitted && fval2.postalCode.errors }"required >
+										<div *ngIf="usercardSubmitted && fval2.postalCode.errors" class="invalid-feedback">
+											<div *ngIf="fval2.postalCode.errors.required">
+											El codigo  es requerido
+											</div>
+										 
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="submit-section submit-btn-bottom">
+								<button class="btn btn-primary btn-block btn-lg login-btn" type="submit" [hidden]="!_uw.buttonDisabled" disabled="disabled" (click)="okUpdateUsercard(usercardSubmit)">Enviar</button>
+								<button class="btn btn-primary btn-block btn-lg login-btn" type="submit" [hidden]="_uw.buttonDisabled" (click)="okUpdateUsercard(usercardSubmit)">Enviar</button>
+							</div>
+						</div>
+					</div>
+
+				</form>
+			</div>
+
+			
+			
+		</div>
+	</div>
+</div>

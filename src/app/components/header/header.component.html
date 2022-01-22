@@ -1,0 +1,77 @@
+<header class="header header-trans header-five">
+    <nav class="navbar navbar-expand-lg header-nav no-border">
+        <div class="navbar-header">
+        <a id="mobile_btn" href="javascript:void(0);">
+        <span class="bar-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+        </span>
+        </a>
+        <a routerLink="dashboard" class="navbar-brand logo">
+        <img src="assets/assetsdental/img/logo.png" class="img-fluid" alt="Logo">
+        </a>
+        </div>
+        <div class="main-menu-wrapper">
+            <div class="menu-header">
+                <a routerLink="dashboard" class="menu-logo">
+                <img src="assets/assetsdental/img/logo.png" class="img-fluid" alt="Logo">
+                </a>
+                <a id="menu_close" class="menu-close" href="javascript:void(0);">
+                <i class="fas fa-times"></i>
+                </a>
+            </div>
+
+            <ul class="main-nav blue-font">
+                <li class="has-submenu active">
+                  
+                  
+                </li>
+                <li class="has-submenu active" [hidden]="!_uw.isLogged  && !router.url.includes('/dashboard') && !router.url.includes('/appointments') && !router.url.includes('/account') ">
+                    <a routerLink="dashboard"> Dashboard</a>
+                  
+                </li>
+             
+                <li class="has-submenu active"  [hidden]="!_uw.isLogged  && !router.url.includes('/dashboard') && !router.url.includes('/appointments') && !router.url.includes('/account') ">
+                    <a routerLink="account"> Mi cuenta</a>
+                  
+                </li>
+                <li class="has-submenu active"  [hidden]="!_uw.isLogged  && !router.url.includes('/dashboard') && !router.url.includes('/appointments') && !router.url.includes('/account')  && !router.url.includes('/newappointment') ">
+                    <a  href="javascript:void(0)" data-toggle="modal" data-target="#voice_call" > Cerrar session</a>
+                  
+                </li>
+            
+            </ul>
+          
+            
+        </div>
+        <ul class="nav header-navbar-rht right-menu" [hidden]="_uw.isLogged">
+            <li class="nav-item">
+            <a class="nav-link header-login white-bg" routerLink="/login" [hidden]="!router.url.includes('/register') && !router.url.includes('/registerdoctor')">Entrar </a>
+          <!--   <a class="nav-link header-login white-bg" routerLink="/register"  [hidden]="router.url.includes('/register') || router.url.includes('/registerdoctor')  || router.url.includes('/login')"  >login / Signup</a> -->
+            <a class="nav-link header-login white-bg" routerLink="/register"  [hidden]="router.url.includes('/register') || router.url.includes('/registerdoctor')  "  >Registro</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+    <div class="modal fade call-modal   " id="voice_call">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="call-box incoming-box">
+                        <div class="call-wrapper">
+                            <div class="call-inner">
+                                <div class="call-user">
+                                    <h4>Confirma que desea cerrar sesión?</h4>
+                                </div>
+                                <div class="call-items">
+                                    <a href="javascript:void(0);" class="btn call-item call-end" data-dismiss="modal" aria-label="Close"><i class="material-icons">close</i></a>
+                                    <a (click)="onlogoutUser()" style="cursor: pointer;" class="btn call-item call-start"data-dismiss="modal" ><i class="material-icons">done</i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
