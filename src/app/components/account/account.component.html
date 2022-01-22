@@ -72,7 +72,7 @@
 								<div class="col-12 col-md-6">
 										<div class="form-group ">
 										<!-- 	<input type="text" class="form-control floating"> -->
-										<label>Apellidos</label>
+										<label>Apellidos <span style="color:red;">*</span></label>
 											<input type="text" class="form-control floating" id="surname" formControlName="surname" placeholder="Apellidos" [(ngModel)]="usercardSubmit.surname" [ngClass]="{'is-invalid': usercardSubmitted && fval2.surname.errors }"required >
 
 											<div *ngIf="usercardSubmitted && fval2.surname.errors" class="invalid-feedback">
@@ -86,7 +86,7 @@
 								<div class="col-12 col-md-6">
 										<div class="form-group ">
 										
-										<label>Telefono</label>
+										<label>Telefono <span style="color:red;">*</span></label>
 											<input type="text" class="form-control floating" id="phone" formControlName="phone" placeholder="Telefono" [(ngModel)]="usercardSubmit.phone" [ngClass]="{'is-invalid': usercardSubmitted && fval2.phone.errors }"required >
 
 											<div *ngIf="usercardSubmitted && fval2.phone.errors" class="invalid-feedback">
@@ -117,7 +117,7 @@
 								<div class="col-12">
 										<div class="form-group ">
 										
-										<label>Direccion de domicilio</label>
+										<label>Direccion de domicilio <span style="color:red;">*</span></label>
 											<input type="text" class="form-control floating" id="address" formControlName="address" placeholder="Domicilio" [(ngModel)]="usercardSubmit.address" [ngClass]="{'is-invalid': usercardSubmitted && fval2.address.errors }"required >
 
 											<div *ngIf="usercardSubmitted && fval2.address.errors" class="invalid-feedback">
@@ -131,7 +131,7 @@
 								<div class="col-12 col-md-6">
 									<div class="form-group ">
 									
-									<label>Ciudad</label>
+									<label>Ciudad <span style="color:red;">*</span> </label>
 										<input type="text" class="form-control floating" id="city" formControlName="city" placeholder="Ciudad" [(ngModel)]="usercardSubmit.city" [ngClass]="{'is-invalid': usercardSubmitted && fval2.city.errors }"required >
 
 										<div *ngIf="usercardSubmitted && fval2.city.errors" class="invalid-feedback">
@@ -145,7 +145,7 @@
 								<div class="col-12 col-md-6">
 									<div class="form-group ">
 									
-									<label>Provincia</label>
+									<label>Provincia <span style="color:red;">*</span></label>
 										<input type="text" class="form-control floating" id="province" formControlName="province" placeholder="Provincia" [(ngModel)]="usercardSubmit.province" [ngClass]="{'is-invalid': usercardSubmitted && fval2.province.errors }"required >
 
 										<div *ngIf="usercardSubmitted && fval2.province.errors" class="invalid-feedback">
@@ -158,7 +158,7 @@
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group ">
-									<label>Pais</label>
+									<label>Pais <span style="color:red;">*</span></label>
 										<input type="text" class="form-control floating" id="country" formControlName="country" placeholder="Provincia" [(ngModel)]="usercardSubmit.country" [ngClass]="{'is-invalid': usercardSubmitted && fval2.country.errors }"required >
 										<div *ngIf="usercardSubmitted && fval2.country.errors" class="invalid-feedback">
 											<div *ngIf="fval2.country.errors.required">
@@ -170,7 +170,7 @@
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group ">
-									<label>Código Postal</label>
+									<label>Código Postal <span style="color:red;">*</span></label>
 										<input type="text" class="form-control floating" id="postalCode" formControlName="postalCode" placeholder="Provincia" [(ngModel)]="usercardSubmit.postalCode" [ngClass]="{'is-invalid': usercardSubmitted && fval2.postalCode.errors }"required >
 										<div *ngIf="usercardSubmitted && fval2.postalCode.errors" class="invalid-feedback">
 											<div *ngIf="fval2.postalCode.errors.required">
