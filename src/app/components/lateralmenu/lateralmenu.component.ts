@@ -120,7 +120,7 @@ export class LateralmenuComponent implements OnInit {
     }
     setTimeout(() => {
       this.isError = false;
-     console.log("Usuario activo: " +this.userActive.name +" ; "+this.userActive.userd);
+    // console.log("Usuario activo: " +this.userActive.name +" ; "+this.userActive.userd);
     this._uw.userActiveId=this.userActive.userd;
 
     }, 5000);
